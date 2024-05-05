@@ -2,7 +2,6 @@
 
 namespace Workbench\App\Policies;
 
-use Illuminate\Auth\Access\Response;
 use Illuminate\Foundation\Auth\User;
 use Workbench\App\Models\User;
 

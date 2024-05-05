@@ -2,7 +2,8 @@
 
 namespace BrianLogan\LaravelUserStatus\Enums;
 
-enum Statuses: string {
+enum Statuses: string
+{
     case ONLINE = 'online';
     case OFFLINE = 'offline';
     case AWAY = 'away';
