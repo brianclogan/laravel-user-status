@@ -31,7 +31,7 @@ trait HasStatus
         ]);
     }
 
-    public function getStatus()
+    public function getLatestStatus()
     {
         return $this->status()->latest()->first();
     }
