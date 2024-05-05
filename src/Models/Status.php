@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Status extends Model
 {
     protected $casts = [
-        'meta' => 'json'
+        'meta' => 'json',
     ];
 
     public function __construct(array $attributes = [])
@@ -37,8 +37,4 @@ class Status extends Model
     {
         return $query->where('reason', $reason);
     }
-
-
-
-
 }

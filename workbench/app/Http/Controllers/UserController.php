@@ -2,9 +2,9 @@
 
 namespace Workbench\App\Http\Controllers;
 
-use Workbench\App\Models\User;
 use Workbench\App\Http\Requests\StoreUserRequest;
 use Workbench\App\Http\Requests\UpdateUserRequest;
+use Workbench\App\Models\User;
 
 class UserController
 {

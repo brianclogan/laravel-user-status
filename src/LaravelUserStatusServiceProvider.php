@@ -2,9 +2,9 @@
 
 namespace BrianLogan\LaravelUserStatus;
 
+use BrianLogan\LaravelUserStatus\Commands\LaravelUserStatusCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use BrianLogan\LaravelUserStatus\Commands\LaravelUserStatusCommand;
 
 class LaravelUserStatusServiceProvider extends PackageServiceProvider
 {

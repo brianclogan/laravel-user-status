@@ -2,32 +2,32 @@
 
 namespace BrianLogan\LaravelUserStatus\Traits;
 
-use BrianLogan\LaravelUserStatus\Models\Status;
-
-trait HasStatus {
-
+trait HasStatus
+{
     public function status()
     {
-        if(config('user-status.keep_history')) {
+        if (config('user-status.keep_history')) {
             return $this->morphMany(config('user-status.status_model'), 'statusable');
         }
+
         return $this->morphOne(config('user-status.status_model'), 'statusable');
     }
 
     public function setStatus($status, $reason = null, $meta = null)
     {
-        if(config('user-status.keep_history')) {
+        if (config('user-status.keep_history')) {
             $this->status()->create([
                 'name' => $status,
                 'reason' => $reason,
-                'meta' => $meta
+                'meta' => $meta,
             ]);
+
             return;
         }
         $this->status()->updateOrCreate([
             'name' => $status,
             'reason' => $reason,
-            'meta' => $meta
+            'meta' => $meta,
         ]);
     }
 
@@ -38,22 +38,22 @@ trait HasStatus {
 
     public function scopeWhereStatus($query, $status)
     {
-        return $query->whereHas('status', function($query) use ($status) {
+        return $query->whereHas('status', function ($query) use ($status) {
             $query->where('name', $status);
         });
     }
 
     public function scopeWhereStatusReason($query, $reason)
     {
-        return $query->whereHas('status', function($query) use ($reason) {
+        return $query->whereHas('status', function ($query) use ($reason) {
             $query->where('reason', $reason);
         });
     }
 
     public function scopeWhereStatusMeta($query, $key, $value)
     {
-        return $query->whereHas('status', function($query) use ($key, $value) {
-            $query->where('meta->' . $key, $value);
+        return $query->whereHas('status', function ($query) use ($key, $value) {
+            $query->where('meta->'.$key, $value);
         });
     }
 }

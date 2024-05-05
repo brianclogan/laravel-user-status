@@ -2,9 +2,9 @@
 
 namespace BrianLogan\LaravelUserStatus\Tests;
 
+use BrianLogan\LaravelUserStatus\LaravelUserStatusServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use BrianLogan\LaravelUserStatus\LaravelUserStatusServiceProvider;
 
 class TestCase extends Orchestra
 {

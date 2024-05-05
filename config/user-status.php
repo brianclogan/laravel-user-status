@@ -17,41 +17,41 @@ return [
      * We don't store them in the database to reduce the number of queries.
      */
     'statuses' => [
-        1  => [
+        1 => [
             'name' => 'online',
             'color' => 'green',
             'icon' => 'fas fa-circle',
         ],
-        2  => [
+        2 => [
             'name' => 'away',
             'color' => 'yellow',
             'icon' => 'fas fa-circle',
         ],
-        3  => [
+        3 => [
             'name' => 'offline',
             'color' => 'gray',
             'icon' => 'fas fa-circle',
         ],
-        4  => [
+        4 => [
             'name' => 'busy',
             'color' => 'red',
             'icon' => 'fas fa-circle',
         ],
-        5  => [
+        5 => [
             'name' => 'invisible',
             'color' => 'gray',
             'icon' => 'fas fa-circle',
         ],
-        6  => [
+        6 => [
             'name' => 'do_not_disturb',
             'color' => 'red',
             'icon' => 'fas fa-circle',
         ],
-        7  => [
+        7 => [
             'name' => 'custom',
             'color' => 'custom',
             'icon' => 'custom',
-        ]
+        ],
     ],
 
     /**
