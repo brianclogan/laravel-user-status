@@ -19,6 +19,7 @@ class UpdateStatus
 
         if (auth()->check()) {
             if (auth()->user()->using_statuses ?? false) {
+                /** @phpstan-ignore-next-line */
                 auth()->user()->setStatus(config('user-status.middleware.status'), config('user-status.middleware.reason'), config('user-status.middleware.meta'));
             }
         }
