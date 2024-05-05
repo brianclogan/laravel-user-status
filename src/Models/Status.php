@@ -4,6 +4,9 @@ namespace BrianLogan\LaravelUserStatus\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property mixed $status
+ */
 class Status extends Model
 {
     protected $casts = [
