@@ -8,7 +8,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\Attributes\WithMigration;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
+use function Orchestra\Testbench\workbench_path;
 
+#[WithMigration]
 class TestCase extends Orchestra
 {
     use RefreshDatabase;
@@ -30,16 +32,20 @@ class TestCase extends Orchestra
         ];
     }
 
+    /**
+     * Define database migrations.
+     *
+     * @return void
+     */
+    protected function defineDatabaseMigrations()
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations/');
+        $this->loadMigrationsFrom(workbench_path('database/migrations'));
+    }
+
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
 
-        $migration = include __DIR__.'/../database/migrations/create_user_status_table.php.stub';
-        $migration->up();
-//
-//        foreach (glob(__DIR__.'/../workbench/database/migrations/*.php') as $migration) {
-//            $migration = include $migration;
-//            $migration->up();
-//        }
     }
 }
