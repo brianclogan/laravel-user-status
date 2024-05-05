@@ -3,7 +3,6 @@
 namespace BrianLogan\LaravelUserStatus;
 
 use BrianLogan\LaravelUserStatus\Commands\LaravelUserStatusCommand;
-use Illuminate\Routing\Router;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -25,8 +24,8 @@ class LaravelUserStatusServiceProvider extends PackageServiceProvider
 
     public function bootingPackage(): void
     {
-        if(config('user-status.middleware.enabled')) {
-            foreach(config('user-status.middleware.groups') as $group) {
+        if (config('user-status.middleware.enabled')) {
+            foreach (config('user-status.middleware.groups') as $group) {
                 app('router')->pushMiddlewareToGroup($group, \BrianLogan\LaravelUserStatus\Http\Middleware\UpdateStatus::class);
             }
         }

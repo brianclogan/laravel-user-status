@@ -23,7 +23,6 @@ class UpdateStatus
             }
         }
 
-
         return $response;
     }
 }
