@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace BrianLogan\LaravelUserStatus\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelUserStatusCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-user-status';
 
     public $description = 'My command';
 
