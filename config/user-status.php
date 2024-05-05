@@ -12,49 +12,6 @@ return [
     ],
 
     /**
-     * Statuses
-     *
-     * We don't store them in the database to reduce the number of queries.
-     */
-    'statuses' => [
-        1 => [
-            'name' => 'online',
-            'color' => 'green',
-            'icon' => 'fas fa-circle',
-        ],
-        2 => [
-            'name' => 'away',
-            'color' => 'yellow',
-            'icon' => 'fas fa-circle',
-        ],
-        3 => [
-            'name' => 'offline',
-            'color' => 'gray',
-            'icon' => 'fas fa-circle',
-        ],
-        4 => [
-            'name' => 'busy',
-            'color' => 'red',
-            'icon' => 'fas fa-circle',
-        ],
-        5 => [
-            'name' => 'invisible',
-            'color' => 'gray',
-            'icon' => 'fas fa-circle',
-        ],
-        6 => [
-            'name' => 'do_not_disturb',
-            'color' => 'red',
-            'icon' => 'fas fa-circle',
-        ],
-        7 => [
-            'name' => 'custom',
-            'color' => 'custom',
-            'icon' => 'custom',
-        ],
-    ],
-
-    /**
      * Laravel Echo Configuration
      *
      * This is used to broadcast the status changes to the frontend
@@ -71,6 +28,29 @@ return [
          */
         'presences_enabled' => false,
         'presences' => 'statusable.{type}.{id}.presences',
+    ],
+
+    /**
+     * Middleware
+     *
+     * This is applied when a user makes a request. It will update the user's status
+     * based on the configuration below.
+     *
+     * If you want to disable this, set `enabled` to false.
+     *
+     * If you want to apply this to a different group, you can add more groups to the `groups` array.
+     * If you apply `api`, it will set the user status online for any API request which is not recommended.
+     *
+     * Feel free to disable this, and make your own middleware if you want.
+     */
+    'middleware' => [
+        'enabled' => true,
+        'groups' => [
+            'web',
+        ],
+        'status' => 'online',
+        'reason' => 'active',
+        'meta' => null,
     ],
 
     /**

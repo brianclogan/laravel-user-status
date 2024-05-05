@@ -21,4 +21,13 @@ class LaravelUserStatusServiceProvider extends PackageServiceProvider
             ->hasMigration('create_laravel-user-status_table')
             ->hasCommand(LaravelUserStatusCommand::class);
     }
+
+    public function bootingPackage(): void
+    {
+        if (config('user-status.middleware.enabled')) {
+            foreach (config('user-status.middleware.groups') as $group) {
+                app('router')->pushMiddlewareToGroup($group, \BrianLogan\LaravelUserStatus\Http\Middleware\UpdateStatus::class);
+            }
+        }
+    }
 }
