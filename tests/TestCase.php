@@ -40,7 +40,7 @@ class TestCase extends Orchestra
      */
     protected function defineDatabaseMigrations()
     {
-//        $this->loadMigrationsFrom(__DIR__.'/../database/migrations/');
+        //        $this->loadMigrationsFrom(__DIR__.'/../database/migrations/');
         $this->loadMigrationsFrom(workbench_path('database/migrations'));
     }
 
@@ -48,7 +48,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        $migration = include __DIR__ . '/../database/migrations/create_user_status_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_user_status_table.php.stub';
         $migration->up();
     }
 }
