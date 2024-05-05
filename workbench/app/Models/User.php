@@ -12,8 +12,8 @@ use Orchestra\Testbench\Factories\UserFactory;
 class User extends Authenticatable
 {
     use HasFactory;
-    use Notifiable;
     use HasStatus;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,8 +51,8 @@ class User extends Authenticatable
         ];
     }
 
-    public static function newFactory() {
+    public static function newFactory()
+    {
         return UserFactory::new();
     }
-
 }

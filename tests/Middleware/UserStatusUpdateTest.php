@@ -1,7 +1,5 @@
 <?php
 
-use Workbench\App\Models\TestModel;
-
 uses()->group('middleware');
 
 beforeAll(function () {
@@ -18,5 +16,5 @@ it('sets the status to online on a visit', function () {
         ->assertOk();
 
     ray($user->status);
-//    expect($user->status)->toBe('online');
+    //    expect($user->status)->toBe('online');
 });

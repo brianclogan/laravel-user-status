@@ -4,7 +4,7 @@ use Workbench\App\Models\TestModel;
 
 uses()->group('custom-tables');
 
-beforeAll(function() {
+beforeAll(function () {
     $_ENV['USER_STATUS_TABLE'] = 'custom_status_table';
 });
 

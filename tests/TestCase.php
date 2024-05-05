@@ -5,7 +5,6 @@ namespace BrianLogan\LaravelUserStatus\Tests;
 use BrianLogan\LaravelUserStatus\LaravelUserStatusServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Orchestra\Testbench\Attributes\WithMigration;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
 use function Orchestra\Testbench\workbench_path;

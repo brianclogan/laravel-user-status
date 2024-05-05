@@ -9,7 +9,7 @@ beforeAll(function () {
     $_ENV['USER_STATUS_TABLE'] = null;
 });
 
-describe('Status without history', function() {
+describe('Status without history', function () {
     it('can create a status', function () {
         $model = TestModel::factory(1)->create()->first();
         $this->assertDatabaseHas('test_models', ['name' => $model->name]);
@@ -19,7 +19,7 @@ describe('Status without history', function() {
         $model->setStatus($status);
         $this->assertDatabaseHas(config('user-status.tables.status_table'), ['statusable_id' => $model->id, 'status' => $status]);
     });
-    it('can not create multiple statuses', function() {
+    it('can not create multiple statuses', function () {
         $model = TestModel::factory(1)->create()->first();
         $this->assertDatabaseHas('test_models', ['name' => $model->name]);
 

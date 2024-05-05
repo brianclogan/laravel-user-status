@@ -9,7 +9,7 @@ beforeAll(function () {
     $_ENV['USER_STATUS_TABLE'] = null;
 });
 
-describe('Status with history', function() {
+describe('Status with history', function () {
     it('can create a status', function () {
         $model = TestModel::factory(1)->create()->first();
         $this->assertDatabaseHas('test_models', ['name' => $model->name]);
