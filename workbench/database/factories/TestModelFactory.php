@@ -3,21 +3,21 @@
 namespace Workbench\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Workbench\App\Models\User;
+use Workbench\App\Models\TestModel;
 
 /**
- * @template TModel of \Workbench\App\Models\User
+ * @template TModel of \Workbench\App\Models\TestModel
  *
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<TModel>
  */
-class UserFactory extends Factory
+class TestModelFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var class-string<TModel>
      */
-    protected $model = User::class;
+    protected $model = TestModel::class;
 
     /**
      * Define the model's default state.

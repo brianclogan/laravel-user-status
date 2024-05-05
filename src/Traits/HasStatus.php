@@ -17,17 +17,18 @@ trait HasStatus
 
     public function setStatus($status, $reason = null, $meta = null)
     {
-        if (config('user-status.keep_history')) {
-            $this->status()->create([
-                'name' => $status,
-                'reason' => $reason,
-                'meta' => $meta,
-            ]);
-
-            return;
+        if (!config('user-status.keep_history')) {
+            if ($this->status()->exists()) {
+                $this->status()->update([
+                    'status' => $status,
+                    'reason' => $reason,
+                    'meta' => $meta,
+                ]);
+                return;
+            }
         }
-        $this->status()->updateOrCreate([
-            'name' => $status,
+        $this->status()->create([
+            'status' => $status,
             'reason' => $reason,
             'meta' => $meta,
         ]);

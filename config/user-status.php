@@ -8,7 +8,7 @@ return [
      * The table names used by the package.
      */
     'tables' => [
-        'status_table' => 'user_statuses',
+        'status_table' => env('USER_STATUS_TABLE', 'user_statuses'),
     ],
 
     /**
@@ -21,12 +21,12 @@ return [
         /**
          * Enable or disable the broadcasting of the status changes
          */
-        'enabled' => false,
+        'enabled' => env('USER_STATUS_ECHO_ENABLED', false),
         'channel' => 'statusable.{type}.{id}',
         /**
          * Enable or disable the broadcasting of the presence changes
          */
-        'presences_enabled' => false,
+        'presences_enabled' => env('USER_STATUS_PRESENCES_ENABLED', false),
         'presences' => 'statusable.{type}.{id}.presences',
     ],
 
@@ -44,7 +44,7 @@ return [
      * Feel free to disable this, and make your own middleware if you want.
      */
     'middleware' => [
-        'enabled' => true,
+        'enabled' => env('USER_STATUS_MIDDLEWARE_ENABLED', true),
         'groups' => [
             'web',
         ],
@@ -75,6 +75,6 @@ return [
      * This will update the status model to use a morphMany relationship
      * instead of a morphOne relationship.
      */
-    'keep_history' => false,
+    'keep_history' => env('USER_STATUS_KEEP_HISTORY', false),
 
 ];

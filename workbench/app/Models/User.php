@@ -2,23 +2,57 @@
 
 namespace Workbench\App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use BrianLogan\LaravelUserStatus\Traits\HasStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Workbench\Database\Factories\UserFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Orchestra\Testbench\Factories\UserFactory;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory, HasStatus;
+    use HasFactory;
+    use Notifiable;
+    use HasStatus;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
 
-    public static function factory($count = null, $state = []): UserFactory
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
     {
-        return new UserFactory($count, $state);
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
+
+    public static function newFactory() {
+        return UserFactory::new();
+    }
+
 }

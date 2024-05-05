@@ -9,6 +9,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Status extends Model
 {
+
+    protected $fillable = [
+        'status',
+        'reason',
+        'meta',
+        'statusable_id',
+        'statusable_type',
+    ];
+
     protected $casts = [
         'meta' => 'json',
     ];
