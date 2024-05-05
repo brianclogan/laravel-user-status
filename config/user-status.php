@@ -31,6 +31,29 @@ return [
     ],
 
     /**
+     * Middleware
+     *
+     * This is applied when a user makes a request. It will update the user's status
+     * based on the configuration below.
+     *
+     * If you want to disable this, set `enabled` to false.
+     *
+     * If you want to apply this to a different group, you can add more groups to the `groups` array.
+     * If you apply `api`, it will set the user status online for any API request which is not recommended.
+     *
+     * Feel free to disable this, and make your own middleware if you want.
+     */
+    'middleware' => [
+        'enabled' => true,
+        'groups' => [
+            'web',
+        ],
+        'status' => 'online',
+        'reason' => 'active',
+        'meta' => null,
+    ],
+
+    /**
      * Status Model
      *
      * The model used to store the statuses, you can extend the model

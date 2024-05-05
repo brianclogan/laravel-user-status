@@ -4,6 +4,8 @@ namespace BrianLogan\LaravelUserStatus\Traits;
 
 trait HasStatus
 {
+    public bool $using_statuses = true;
+
     public function status()
     {
         if (config('user-status.keep_history')) {
